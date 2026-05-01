@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kenya Economic Survey 2026 — Josiah K. Kimani Analysis</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #006B3C;
+    --green-dark: #004D2A;
+    --green-light: #00A85A;
+    --green-pale: #E8F5EE;
+    --red: #BB0000;
+    --red-pale: #FFF0F0;
+    --gold: #C8951A;
+    --gold-pale: #FFF8E7;
+    --savanna: #C8651A;
+    --earth: #5C3317;
+    --ink: #0D1B0F;
+    --ink-mid: #3A4A3D;
+    --ink-light: #6B7F6E;
+    --paper: #FAFDF8;
+    --paper-warm: #F5F0E8;
+    --border: #D4E5D9;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: var(--green-dark);
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    position: relative;
+    overflow: hidden;
+    /* Maasai-inspired diamond lattice overlay */
+    background-image:
+      repeating-linear-gradient(
+        45deg,
+        transparent 0px, transparent 28px,
+        rgba(200,149,26,0.07) 28px, rgba(200,149,26,0.07) 29px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        transparent 0px, transparent 28px,
+        rgba(200,149,26,0.07) 28px, rgba(200,149,26,0.07) 29px
+      ),
+      linear-gradient(155deg, #002D18 0%, #004D2A 40%, #006B3C 75%, #005535 100%);
+  }
+
+  /* Soft top-right radial glow */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Warm gold glow bottom-left */
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,149,26,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* ===== KENYA MAP WATERMARK ===== */
+  .kenya-map-bg {
+    position: absolute;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 400px;
+    height: auto;
+    pointer-events: none;
+    z-index: 0;
+    /* Strip all colour to a clean white ghost */
+    /* filter: brightness(0) invert(1); */
+    opacity: 0.7
+    ;
+  }
+
+  /* ===== TOPBAR ===== */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 60px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+    z-index: 10;
+  }
+
+  .topbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .project-badge {
+    border: 1.5px solid var(--gold);
+    color: var(--gold);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    padding: 5px 10px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+
+  .topbar-name {
+    color: rgba(255,255,255,0.65);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+
+  .topbar-name .sep {
+    color: rgba(255,255,255,0.22);
+    margin: 0 8px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ===== HERO CONTENT ===== */
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s ease forwards;
+  }
+
+  .hero-eyebrow::before,
+  .hero-eyebrow::after {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.45;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(56px, 8vw, 96px);
+    font-weight: 900;
+    color: white;
+    line-height: 1;
+    margin-bottom: 8px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s ease forwards;
+  }
+
+  .hero-year {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(56px, 8vw, 96px);
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255,255,255,0.22);
+    line-height: 1;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.5s ease forwards;
+  }
+
+  .hero-subtitle {
+    font-size: 17px;
+    color: rgba(255,255,255,0.6);
+    max-width: 540px;
+    line-height: 1.75;
+    margin-bottom: 12px;
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.6s ease forwards;
+  }
+
+  .hero-byline {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: rgba(255,255,255,0.32);
+    letter-spacing: 0.1em;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.68s ease forwards;
+  }
+
+  .hero-byline strong {
+    color: rgba(255,255,255,0.6);
+    font-weight: 500;
+  }
+
+  .hero-byline .dot {
+    margin: 0 8px;
+    opacity: 0.35;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.8s ease forwards;
+  }
+
+  .btn-primary {
+    background: white;
+    color: var(--green);
+    font-weight: 600;
+    font-size: 13px;
+    padding: 13px 30px;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+  }
+
+  .btn-outline {
+    border: 1.5px solid rgba(255,255,255,0.28);
+    color: rgba(255,255,255,0.75);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 13px 30px;
+    border-radius: 7px;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  /* ===== HERO STATS STRIP ===== */
+  .hero-bottom {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    opacity: 0;
+    animation: fadeUp 0.8s 1s ease forwards;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-stat {
+    padding: 28px 40px;
+    border-right: 1px solid rgba(255,255,255,0.07);
+    text-align: center;
+    transition: background 0.2s;
+  }
+
+  .hero-stat:last-child { border-right: none; }
+  .hero-stat:hover { background: rgba(255,255,255,0.04); }
+
+  .hero-stat-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 4px;
+  }
+
+  .hero-stat-lbl {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .hero-stat-change {
+    font-size: 11px;
+    color: var(--gold);
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* ===== KENYA FLAG STRIPE ===== */
+  .flag-stripe {
+    display: flex;
+    height: 4px;
+  }
+
+  .flag-stripe-seg { flex: 1; }
+  .flag-stripe-seg:nth-child(1) { background: #006B3C; }
+  .flag-stripe-seg:nth-child(2) { background: #BB0000; }
+  .flag-stripe-seg:nth-child(3) { background: #0D1B0F; }
+
+  /* ===== ABOUT / INTRO BAND ===== */
+  .intro-band {
+    background: #111810;
+    color: rgba(255,255,255,0.52);
+    padding: 26px 60px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .intro-band-flag {
+    font-size: 22px;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .intro-band p {
+    font-size: 13px;
+    line-height: 1.7;
+    max-width: 900px;
+  }
+
+  .intro-band strong {
+    color: rgba(255,255,255,0.8);
+    font-weight: 500;
+  }
+
+  /* ===== GDP STRIP ===== */
+  .gdp-strip {
+    background: var(--ink);
+    padding: 60px;
+    overflow: hidden;
+  }
+
+  .gdp-strip-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .gdp-label {
+    color: rgba(255,255,255,0.38);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-family: 'DM Mono', monospace;
+    margin-bottom: 12px;
+  }
+
+  .gdp-big {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 900;
+    color: white;
+    line-height: 1;
+  }
+
+  .gdp-growth {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0,168,90,0.12);
+    border: 1px solid rgba(0,168,90,0.35);
+    color: var(--green-light);
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'DM Mono', monospace;
+    padding: 7px 16px;
+    border-radius: 40px;
+    margin-top: 18px;
+    letter-spacing: 0.05em;
+  }
+
+  .gdp-chart-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    height: 120px;
+  }
+
+  .gdp-bar-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .gdp-bar {
+    width: 100%;
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px 4px 0 0;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .gdp-bar.active { background: var(--gold); }
+  .gdp-bar:hover { background: rgba(255,255,255,0.25); }
+  .gdp-bar.active:hover { background: var(--gold); filter: brightness(1.1); }
+
+  .gdp-bar-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.32);
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.04em;
+  }
+
+  /* ===== SECTION WRAPPER ===== */
+  .section {
+    padding: 100px 60px;
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 56px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+
+  /* Kenya flag-colour underline accent */
+  .section-header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 72px;
+    height: 3px;
+    background: linear-gradient(
+      to right,
+      #006B3C 0%, #006B3C 40%,
+      #BB0000 40%, #BB0000 78%,
+      #0D1B0F 78%
+    );
+    border-radius: 2px;
+  }
+
+  .section-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--green);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+
+  .section-note {
+    font-size: 13px;
+    color: var(--ink-light);
+    font-style: italic;
+  }
+
+  /* ===== SECTOR GRID ===== */
+  .sector-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .sector-card {
+    background: white;
+    padding: 36px 32px;
+    cursor: default;
+    transition: background 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sector-card:hover { background: var(--green-pale); }
+
+  /* Green→gold gradient bar slides in from left on hover */
+  .sector-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(to right, var(--green), var(--gold));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .sector-card:hover::before { transform: scaleX(1); }
+
+  .sector-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .sector-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+    letter-spacing: 0.01em;
+  }
+
+  .sector-growth {
+    font-family: 'DM Mono', monospace;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  .sector-growth.up { color: var(--green); }
+  .sector-growth.down { color: var(--red); }
+
+  .sector-desc {
+    font-size: 12px;
+    color: var(--ink-light);
+    line-height: 1.55;
+    margin-top: 10px;
+  }
+
+  /* ===== KEY METRICS BAND ===== */
+  .metrics-band {
+    background: var(--paper-warm);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 60px;
+  }
+
+  .metrics-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px;
+  }
+
+  .metric-item { text-align: center; }
+
+  .metric-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .metric-label {
+    font-size: 12px;
+    color: var(--ink-light);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+  }
+
+  .metric-change {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    margin-top: 6px;
+    padding: 3px 8px;
+    border-radius: 20px;
+    display: inline-block;
+  }
+
+  .metric-change.pos { background: var(--green-pale); color: var(--green); }
+  .metric-change.neg { background: var(--red-pale); color: var(--red); }
+  .metric-change.neu { background: var(--gold-pale); color: var(--gold); }
+
+  /* ===== CHAPTER TABS ===== */
+  .tabs-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--ink);
+    border-bottom: 2px solid rgba(255,255,255,0.05);
+  }
+
+  .tabs-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 60px;
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .tabs-inner::-webkit-scrollbar { display: none; }
+
+  .tab-btn {
+    flex-shrink: 0;
+    padding: 18px 22px;
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.38);
+    border: none;
+    background: none;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+  }
+
+  .tab-btn.active { color: var(--gold); }
+  .tab-btn.active::after { transform: scaleX(1); }
+  .tab-btn:hover { color: rgba(255,255,255,0.7); }
+
+  /* ===== CHAPTER PANELS ===== */
+  .chapter-panel { display: none; }
+  .chapter-panel.active { display: block; }
+
+  /* ===== DATA GRID & CARDS ===== */
+  .data-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .data-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+  }
+
+  .data-card-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--ink-light);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* ===== MINI BAR CHART ===== */
+  .mini-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    height: 80px;
+    margin-bottom: 16px;
+  }
+
+  .mini-bar {
+    flex: 1;
+    border-radius: 3px 3px 0 0;
+    background: var(--green-pale);
+    border: 1.5px solid var(--green);
+    border-bottom: none;
+    transition: opacity 0.2s;
+    cursor: pointer;
+  }
+
+  .mini-bar:hover { opacity: 0.7; }
+  .mini-bar.highlight { background: var(--green); border-color: var(--green); }
+
+  .mini-chart-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    font-family: 'DM Mono', monospace;
+    color: var(--ink-light);
+    margin-top: 6px;
+  }
+
+  /* ===== DONUT CHART ===== */
+  .donut-wrap {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .donut-legend { flex: 1; }
+
+  .donut-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 13px;
+  }
+
+  .donut-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .donut-name { color: var(--ink-mid); flex: 1; }
+  .donut-pct { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--ink); font-weight: 500; }
+
+  /* ===== CALLOUT BOXES ===== */
+  .highlight-box {
+    background: var(--green-pale);
+    border-left: 4px solid var(--green);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+
+  .highlight-box p { font-size: 15px; color: var(--ink); line-height: 1.65; }
+  .highlight-box strong { color: var(--green); }
+
+  .warn-box {
+    background: var(--red-pale);
+    border-left: 4px solid var(--red);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+
+  .warn-box p { font-size: 15px; color: var(--ink); line-height: 1.65; }
+  .warn-box strong { color: var(--red); }
+
+  .note-box {
+    background: var(--gold-pale);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+  }
+
+  .note-box p { font-size: 15px; color: var(--ink); line-height: 1.65; }
+  .note-box strong { color: var(--gold); }
+
+  /* ===== STAT ROWS ===== */
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    gap: 16px;
+  }
+
+  .stat-row:last-child { border-bottom: none; }
+  .stat-row-label { font-size: 14px; color: var(--ink-mid); flex: 1; }
+  .stat-row-val { font-family: 'DM Mono', monospace; font-size: 15px; font-weight: 500; color: var(--ink); }
+  .stat-row-change { font-size: 12px; font-family: 'DM Mono', monospace; text-align: right; }
+  .stat-row-change.pos { color: var(--green); }
+  .stat-row-change.neg { color: var(--red); }
+  .stat-row-change.neu { color: var(--ink-light); }
+
+  /* ===== PROGRESS BARS ===== */
+  .progress-item { margin-bottom: 20px; }
+  .progress-header { display: flex; justify-content: space-between; margin-bottom: 8px; }
+  .progress-name { font-size: 13px; color: var(--ink-mid); }
+  .progress-val { font-size: 13px; font-family: 'DM Mono', monospace; color: var(--ink); }
+  .progress-track { height: 6px; background: var(--green-pale); border-radius: 3px; overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--green); border-radius: 3px; transition: width 1s ease; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.45);
+    padding: 72px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Kenya flag 3-stripe top border */
+  footer::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(
+      to right,
+      #006B3C 0%, #006B3C 33.3%,
+      #BB0000 33.3%, #BB0000 66.6%,
+      #0D1B0F 66.6%
+    );
+  }
+
+  .footer-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-wordmark {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+
+  .footer-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 36px;
+  }
+
+  .footer-divider {
+    width: 40px;
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+    margin: 32px auto;
+  }
+
+  footer p { font-size: 13px; line-height: 1.85; }
+  footer a { color: var(--gold); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in.visible { opacity: 1; transform: none; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .topbar { padding: 20px 24px; }
+    .nav-links { display: none; }
+    .section { padding: 60px 24px; }
+    .hero-bottom { grid-template-columns: repeat(2, 1fr); }
+    .sector-grid { grid-template-columns: 1fr 1fr; }
+    .metrics-inner { grid-template-columns: repeat(3, 1fr); }
+    .data-grid { grid-template-columns: 1fr; }
+    .gdp-strip-inner { grid-template-columns: 1fr; gap: 40px; }
+    .metrics-band { padding: 40px 24px; }
+    .gdp-strip { padding: 40px 24px; }
+    .tabs-inner { padding: 0 24px; }
+    .intro-band { padding: 22px 24px; flex-direction: column; gap: 10px; }
+    .kenya-map-bg { width: 260px; opacity: 0.06; }
+  }
+
+  @media (max-width: 600px) {
+    .hero-bottom { grid-template-columns: 1fr 1fr; }
+    .hero-stat { padding: 20px 16px; }
+    .sector-grid { grid-template-columns: 1fr; }
+    .metrics-inner { grid-template-columns: repeat(2, 1fr); }
+    .kenya-map-bg { display: none; }
+    footer { padding: 56px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+
+  <!-- Kenya flag-map watermark (accurate geographic outline) -->
+  <img class="kenya-map-bg" src="Flag_map_of_Kenya.svg" alt="" aria-hidden="true">
+
+  <nav class="topbar">
+    <div class="topbar-logo">
+      <span class="project-badge">ES '26</span>
+      <span class="topbar-name">
+        Kenya Economic Survey
+        <span class="sep">·</span>
+        Josiah K. Kimani
+      </span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#sectors">Sectors</a></li>
+      <li><a href="#chapters">Chapters</a></li>
+      <li><a href="#overview">Key Data</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Josiah K. Kimani &nbsp;·&nbsp; Kenya &nbsp;·&nbsp; April 2026</div>
+    <div class="hero-title">Economic Survey</div>
+    <div class="hero-year">2026</div>
+    <p class="hero-subtitle">An independent digest of Kenya's 2025 economic performance — covering 18 sectors, GDP, employment, trade, and social indicators.</p>
+    <p class="hero-byline">
+      <strong>Josiah K. Kimani</strong>
+      <span class="dot">·</span>
+      Josiah K. Kimani.
+      <span class="dot">·</span>
+      Techno-democracy &amp; Governance
+    </p>
+    <div class="hero-cta">
+      <a href="#overview" class="btn-primary">Explore the Data</a>
+      <a href="#chapters" class="btn-outline">Browse Chapters</a>
+    </div>
+  </div>
+
+  <div class="hero-bottom">
+    <div class="hero-stat">
+      <div class="hero-stat-val">4.6%</div>
+      <div class="hero-stat-lbl">Real GDP Growth 2025</div>
+      <div class="hero-stat-change">↓ from 4.7% in 2024</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-val">KSh 17.6T</div>
+      <div class="hero-stat-lbl">Nominal GDP</div>
+      <div class="hero-stat-change">↑ 8.3% year-on-year</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-val">21.6M</div>
+      <div class="hero-stat-lbl">Total Employment</div>
+      <div class="hero-stat-change">↑ 822,100 new jobs</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-val">4.1%</div>
+      <div class="hero-stat-lbl">Annual Inflation</div>
+      <div class="hero-stat-change">↓ from 4.5% in 2024</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== KENYA FLAG STRIPE ===== -->
+<div class="flag-stripe">
+  <div class="flag-stripe-seg"></div>
+  <div class="flag-stripe-seg"></div>
+  <div class="flag-stripe-seg"></div>
+</div>
+
+<!-- ===== ABOUT THIS ANALYSIS ===== -->
+<div class="intro-band">
+  <span class="intro-band-flag">🇰🇪</span>
+  <p>This is an <strong>independent civic data digest</strong>, compiled as part of ongoing work on techno-democracy and economic governance in Africa. All figures are sourced directly from the <strong>KNBS Economic Survey 2026</strong> (ISBN 978-9966-102-53-9). This summary is not affiliated with or endorsed by KNBS.</p>
+</div>
+
+<!-- ===== GDP STRIP ===== -->
+<div class="gdp-strip" id="overview">
+  <div class="gdp-strip-inner">
+    <div>
+      <div class="gdp-label">Nominal GDP 2025</div>
+      <div class="gdp-big">KSh<br>17.6T</div>
+      <div class="gdp-growth">▲ 4.6% Real Growth</div>
+    </div>
+    <div>
+      <div class="gdp-label" style="margin-bottom:12px;">Real GDP Growth Rate (%) — 2021 to 2025</div>
+      <div class="gdp-chart-bars">
+        <div class="gdp-bar-wrap">
+          <div style="color:rgba(255,255,255,0.55);font-size:11px;font-family:'DM Mono',monospace;">7.6%</div>
+          <div class="gdp-bar" style="height:95%;" title="2021: 7.6%"></div>
+          <div class="gdp-bar-label">2021</div>
+        </div>
+        <div class="gdp-bar-wrap">
+          <div style="color:rgba(255,255,255,0.55);font-size:11px;font-family:'DM Mono',monospace;">4.8%</div>
+          <div class="gdp-bar" style="height:60%;" title="2022: 4.8%"></div>
+          <div class="gdp-bar-label">2022</div>
+        </div>
+        <div class="gdp-bar-wrap">
+          <div style="color:rgba(255,255,255,0.55);font-size:11px;font-family:'DM Mono',monospace;">5.6%</div>
+          <div class="gdp-bar" style="height:70%;" title="2023: 5.6%"></div>
+          <div class="gdp-bar-label">2023</div>
+        </div>
+        <div class="gdp-bar-wrap">
+          <div style="color:rgba(255,255,255,0.55);font-size:11px;font-family:'DM Mono',monospace;">4.7%</div>
+          <div class="gdp-bar" style="height:59%;" title="2024: 4.7%"></div>
+          <div class="gdp-bar-label">2024</div>
+        </div>
+        <div class="gdp-bar-wrap">
+          <div style="color:var(--gold);font-size:11px;font-family:'DM Mono',monospace;font-weight:600;">4.6%</div>
+          <div class="gdp-bar active" style="height:58%;" title="2025: 4.6%"></div>
+          <div class="gdp-bar-label" style="color:rgba(255,255,255,0.7);">2025</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== KEY METRICS BAND ===== -->
+<div class="metrics-band">
+  <div class="metrics-inner">
+    <div class="metric-item fade-in">
+      <div class="metric-val">KSh 329,594</div>
+      <div class="metric-label">GDP Per Capita (Current)</div>
+      <span class="metric-change pos">↑ from KSh 309,609</span>
+    </div>
+    <div class="metric-item fade-in">
+      <div class="metric-val">3.3M</div>
+      <div class="metric-label">Modern Sector Wage Employment</div>
+      <span class="metric-change pos">↑ 3.1%</span>
+    </div>
+    <div class="metric-item fade-in">
+      <div class="metric-val">3,139</div>
+      <div class="metric-label">NSE 20 Share Index</div>
+      <span class="metric-change pos">↑ from 2,011</span>
+    </div>
+    <div class="metric-item fade-in">
+      <div class="metric-val">9.0%</div>
+      <div class="metric-label">Central Bank Rate (Dec 2025)</div>
+      <span class="metric-change pos">↓ from 11.25%</span>
+    </div>
+    <div class="metric-item fade-in">
+      <div class="metric-val">KSh 11.4T</div>
+      <div class="metric-label">Total Public Debt (Jun 2025)</div>
+      <span class="metric-change neg">↑ 14.5%</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SECTORS ===== -->
+<div class="section" id="sectors">
+  <div class="section-header fade-in">
+    <div>
+      <div class="section-tag">Sectoral Analysis</div>
+      <h2 class="section-title">Economic Sectors at a Glance</h2>
+    </div>
+    <span class="section-note">All figures refer to 2025 performance</span>
+  </div>
+
+  <div class="sector-grid fade-in">
+    <div class="sector-card">
+      <span class="sector-icon">🌾</span>
+      <div class="sector-name">Agriculture, Forestry &amp; Fishing</div>
+      <div class="sector-growth up">+3.1%</div>
+      <div class="sector-desc">Accounts for 23.2% of GDP. Maize production rose to 45.8M bags. Coffee output up to 51.4K tonnes. Horticultural exports up 13.8% to 457.9K tonnes.</div>
+    </div>
+    <div class="sector-card">
+      <span class="sector-icon">🏗️</span>
+      <div class="sector-name">Construction</div>
+      <div class="sector-growth up">+6.8%</div>
+      <div class="sector-desc">Rebounded strongly from a 0.7% contraction in 2024. Government housing expenditure and road infrastructure projects drove growth.</div>
+    </div>
+    <div class="sector-card">
+      <span class="sector-icon">⛏️</span>
+      <div class="sector-name">Mining &amp; Quarrying</div>
+      <div class="sector-growth up">+14.9%</div>
+      <div class="sector-desc">Recovered from a 7.8% contraction in 2024. Boosted by increased production of minerals used in cement manufacturing.</div>
+    </div>
+    <div class="sector-card">
+      <span class="sector-icon">🏨</span>
+      <div class="sector-name">Accommodation &amp; Food Services</div>
+      <div class="sector-growth up">+15.6%</div>
+      <div class="sector-desc">Strongest growth sector. International visitor arrivals via JKIA &amp; MIA rose 6.1% to 1.95M. Hotel bed-nights up to 11.6M. Kenya co-hosted AFCON.</div>
+    </div>
+    <div class="sector-card">
+      <span class="sector-icon">🏛️</span>
+      <div class="sector-name">Public Administration</div>
+      <div class="sector-growth up">+8.3%</div>
+      <div class="sector-desc">Strong public sector wage growth of 4.6%. Government final consumption expenditure grew 8.0%.</div>
+    </div>
+    <div class="sector-card">
+      <span class="sector-icon">🏦</span>
+      <div class="sector-name">Financial &amp; Insurance</div>
+      <div class="sector-growth up">+6.5%</div>
+      <div class="sector-desc">Commercial bank assets grew to KSh 5.76T. Pension fund assets up 24.6% to KSh 2.81T. Market cap increased by KSh 1.0T.</div>
+    </div>
+    <div class="sector-card">
+      <span class="sector-icon">📡</span>
+      <div class="sector-name">Information &amp; Communication</div>
+      <div class="sector-growth up">+4.8%</div>
+      <div class="sector-desc">Mobile money transactions grew 1.3% to 2.7B. International call traffic rose 9.5%. Broadband capacity rose 4.9%.</div>
+    </div>
+    <div class="sector-card">
+      <span class="sector-icon">🚚</span>
+      <div class="sector-name">Transportation &amp; Storage</div>
+      <div class="sector-growth up">+3.7%</div>
+      <div class="sector-desc">Contributes 11.8% of GDP. SGR freight and passenger traffic sustained. Air cargo volumes at JKIA continued growing.</div>
+    </div>
+    <div class="sector-card">
+      <span class="sector-icon">🏭</span>
+      <div class="sector-name">Manufacturing</div>
+      <div class="sector-growth up">+2.4%</div>
+      <div class="sector-desc">Formal employment rose 5.6% — the leading private sector industry. New EPZ investments attracted. AGOA garment exports sustained.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CHAPTER TABS ===== -->
+<div class="tabs-wrap" id="chapters">
+  <div class="tabs-inner">
+    <button class="tab-btn active" onclick="showChapter(this,'ch-economy')">Economic Performance</button>
+    <button class="tab-btn" onclick="showChapter(this,'ch-employment')">Employment &amp; Prices</button>
+    <button class="tab-btn" onclick="showChapter(this,'ch-finance')">Money &amp; Banking</button>
+    <button class="tab-btn" onclick="showChapter(this,'ch-trade')">Trade &amp; BoP</button>
+    <button class="tab-btn" onclick="showChapter(this,'ch-agriculture')">Agriculture</button>
+    <button class="tab-btn" onclick="showChapter(this,'ch-energy')">Energy</button>
+    <button class="tab-btn" onclick="showChapter(this,'ch-social')">Health &amp; Education</button>
+    <button class="tab-btn" onclick="showChapter(this,'ch-global')">Global Scene</button>
+  </div>
+</div>
+
+<!-- ===== CHAPTER PANELS ===== -->
+
+<div class="chapter-panel active" id="ch-economy">
+  <div class="section">
+    <div class="section-header fade-in">
+      <div><div class="section-tag">Chapter 2</div><h2 class="section-title">Economic Performance</h2></div>
+    </div>
+    <div class="data-grid">
+      <div class="data-card fade-in">
+        <div class="data-card-title">GDP Growth by Expenditure (2025)</div>
+        <div class="progress-item">
+          <div class="progress-header"><span class="progress-name">Government Consumption</span><span class="progress-val">+8.0%</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:80%;"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-header"><span class="progress-name">Gross Fixed Capital Formation</span><span class="progress-val">+5.6%</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:56%;"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-header"><span class="progress-name">Private Consumption</span><span class="progress-val">+4.7%</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:47%;"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-header"><span class="progress-name">Exports of Goods &amp; Services</span><span class="progress-val">+0.1%</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:1%;background:#ccc;"></div></div>
+        </div>
+      </div>
+      <div class="data-card fade-in">
+        <div class="data-card-title">GDP Composition by Expenditure</div>
+        <div class="donut-wrap">
+          <svg width="120" height="120" viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="45" fill="none" stroke="#E8F5EE" stroke-width="22"/>
+            <circle cx="60" cy="60" r="45" fill="none" stroke="#006B3C" stroke-width="22"
+              stroke-dasharray="217 66" stroke-dashoffset="0" transform="rotate(-90 60 60)"/>
+            <circle cx="60" cy="60" r="45" fill="none" stroke="#00A85A" stroke-width="22"
+              stroke-dasharray="53 230" stroke-dashoffset="-217" transform="rotate(-90 60 60)"/>
+            <circle cx="60" cy="60" r="45" fill="none" stroke="#C8951A" stroke-width="22"
+              stroke-dasharray="34 249" stroke-dashoffset="-270" transform="rotate(-90 60 60)"/>
+            <text x="60" y="64" text-anchor="middle" font-size="11" fill="#0D1B0F" font-family="DM Mono" font-weight="500">GDP Mix</text>
+          </svg>
+          <div class="donut-legend">
+            <div class="donut-item"><div class="donut-dot" style="background:#006B3C"></div><span class="donut-name">Private Consumption</span><span class="donut-pct">76.3%</span></div>
+            <div class="donut-item"><div class="donut-dot" style="background:#00A85A"></div><span class="donut-name">Gross Fixed Capital</span><span class="donut-pct">17.9%</span></div>
+            <div class="donut-item"><div class="donut-dot" style="background:#C8951A"></div><span class="donut-name">Govt Consumption</span><span class="donut-pct">11.2%</span></div>
+            <div class="donut-item"><div class="donut-dot" style="background:#E8F5EE"></div><span class="donut-name">Exports (net)</span><span class="donut-pct">-6.0%</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="data-card fade-in">
+        <div class="data-card-title">Nominal GDP Figures</div>
+        <div class="stat-row">
+          <span class="stat-row-label">Nominal GDP (2025)</span>
+          <span class="stat-row-val">KSh 17,577.6Bn</span>
+          <span class="stat-row-change pos">+8.3%</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-row-label">Nominal GDP (2024)</span>
+          <span class="stat-row-val">KSh 16,232.3Bn</span>
+          <span class="stat-row-change pos">+7.9%</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-row-label">Gross National Income</span>
+          <span class="stat-row-val">KSh 17,301.5Bn</span>
+          <span class="stat-row-change pos">+9.1%</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-row-label">Gross National Disposable Income</span>
+          <span class="stat-row-val">KSh 18,257.6Bn</span>
+          <span class="stat-row-change pos">+8.1%</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-row-label">GDP Per Capita (Current)</span>
+          <span class="stat-row-val">KSh 329,594</span>
+          <span class="stat-row-change pos">+6.4%</span>
+        </div>
+      </div>
+      <div class="data-card fade-in">
+        <div class="data-card-title">Top Performing Industries 2025</div>
+        <div class="stat-row">
+          <span class="stat-row-label">Accommodation &amp; Food Services</span>
+          <span class="stat-row-val">+15.6%</span>
+          <span class="stat-row-change pos">▲</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-row-label">Mining &amp; Quarrying</span>
+          <span class="stat-row-val">+14.9%</span>
+          <span class="stat-row-change pos">▲</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-row-label">Construction</span>
+          <span class="stat-row-val">+6.8%</span>
+          <span class="stat-row-change pos">▲</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-row-label">Financial &amp; Insurance</span>
+          <span class="stat-row-val">+6.5%</span>
+          <span class="stat-row-change pos">▲</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-row-label">ICT</span>
+          <span class="stat-row-val">+4.8%</span>
+          <span class="stat-row-change pos">▲</span>
+        </div>
+      </div>
+    </div>
+    <div class="highlight-box fade-in">
+      <p>Kenya's GDP grew at <strong>4.6%</strong> in 2025, sustained by positive growth across all major sectors. Agriculture remains the backbone, contributing <strong>23.2% of GDP</strong>. The economy generated over <strong>822,000 new jobs</strong>, though 87% were in the informal sector.</p>
+    </div>
+  </div>
+</div>
+
+<div class="chapter-panel" id="ch-employment">
+  <div class="section">
+    <div class="section-header fade-in">
+      <div><div class="section-tag">Chapter 3</div><h2 class="section-title">Employment, Earnings &amp; Prices</h2></div>
+    </div>
+    <div class="data-grid">
+      <div class="data-card fade-in">
+        <div class="data-card-title">Employment Overview</div>
+        <div class="stat-row"><span class="stat-row-label">Total Recorded Employment</span><span class="stat-row-val">21.6M</span><span class="stat-row-change pos">+3.9%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Informal Sector Employment</span><span class="stat-row-val">18.1M</span><span class="stat-row-change pos">+716,800 jobs</span></div>
+        <div class="stat-row"><span class="stat-row-label">Modern Sector Wage Employment</span><span class="stat-row-val">3.3M</span><span class="stat-row-change pos">+3.1%</span></div>
+        <div class="stat-row"><span class="stat-row-label">New Jobs Created</span><span class="stat-row-val">822,100</span><span class="stat-row-change neu">87.2% informal</span></div>
+        <div class="stat-row"><span class="stat-row-label">Construction Industry Jobs</span><span class="stat-row-val">+6.7%</span><span class="stat-row-change pos">Highest growth</span></div>
+      </div>
+      <div class="data-card fade-in">
+        <div class="data-card-title">Wage Earnings (Modern Sector)</div>
+        <div class="stat-row"><span class="stat-row-label">Nominal Average Annual Earnings</span><span class="stat-row-val">KSh 988,200</span><span class="stat-row-change pos">+5.9%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Real Average Earnings</span><span class="stat-row-val">KSh 678,800</span><span class="stat-row-change pos">+2.0%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Total Nominal Wage Bill</span><span class="stat-row-val">KSh 3,275.8Bn</span><span class="stat-row-change pos">+9.2%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Private Sector Share of Wage Bill</span><span class="stat-row-val">71.4%</span><span class="stat-row-change neu">Dominant</span></div>
+        <div class="stat-row"><span class="stat-row-label">TSC's Share of Public Wage Bill</span><span class="stat-row-val">37.9%</span><span class="stat-row-change neu">Largest</span></div>
+      </div>
+      <div class="data-card fade-in">
+        <div class="data-card-title">Inflation by Division (2025)</div>
+        <div class="progress-item">
+          <div class="progress-header"><span class="progress-name">Food &amp; Non-Alcoholic Beverages</span><span class="progress-val">7.2%</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:72%;background:#BB0000;"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-header"><span class="progress-name">Overall Headline Inflation</span><span class="progress-val">4.1%</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:41%;"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-header"><span class="progress-name">Transport</span><span class="progress-val">3.2%</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:32%;background:#C8951A;"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-header"><span class="progress-name">Housing, Water, Electricity</span><span class="progress-val">0.6%</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:6%;background:#00A85A;"></div></div>
+        </div>
+      </div>
+      <div class="data-card fade-in">
+        <div class="data-card-title">Inflation Trend (Headline)</div>
+        <div class="mini-chart">
+          <div class="mini-bar" style="height:63%;" title="2021: 6.1%"></div>
+          <div class="mini-bar" style="height:79%;" title="2022: 7.6%"></div>
+          <div class="mini-bar" style="height:76%;" title="2023: 7.4%"></div>
+          <div class="mini-bar" style="height:46%;" title="2024: 4.5%"></div>
+          <div class="mini-bar highlight" style="height:42%;" title="2025: 4.1%"></div>
+        </div>
+        <div class="mini-chart-labels"><span>2021</span><span>2022</span><span>2023</span><span>2024</span><span>2025</span></div>
+        <p style="margin-top:16px;font-size:13px;color:var(--ink-mid);line-height:1.6;">Inflation eased to <strong>4.1%</strong> in 2025 from 4.5% in 2024, driven by declines in fuel, electricity, and cooking gas prices — despite food prices surging 7.2%.</p>
+      </div>
+    </div>
+    <div class="warn-box fade-in">
+      <p><strong>Food Inflation Alert:</strong> Food and non-alcoholic beverages recorded the highest inflation at 7.2%, up from 5.6% in 2024. This disproportionately affects lower-income households whose food basket forms a larger share of expenditure.</p>
+    </div>
+  </div>
+</div>
+
+<div class="chapter-panel" id="ch-finance">
+  <div class="section">
+    <div class="section-header fade-in">
+      <div><div class="section-tag">Chapters 4 &amp; 5</div><h2 class="section-title">Money, Banking &amp; Public Finance</h2></div>
+    </div>
+    <div class="data-grid">
+      <div class="data-card fade-in">
+        <div class="data-card-title">Monetary Policy &amp; Interest Rates</div>
+        <div class="stat-row"><span class="stat-row-label">Central Bank Rate (Dec 2025)</span><span class="stat-row-val">9.00%</span><span class="stat-row-change pos">↓ from 11.25%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Lending Rate (Dec 2025)</span><span class="stat-row-val">14.82%</span><span class="stat-row-change pos">↓ from 16.89%</span></div>
+        <div class="stat-row"><span class="stat-row-label">91-day T-Bill Rate (Dec 2025)</span><span class="stat-row-val">7.78%</span><span class="stat-row-change pos">↓ from 10.32%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Broad Money Supply M3</span><span class="stat-row-val">KSh 6,731.2Bn</span><span class="stat-row-change pos">+11.3%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Credit to Private Sector</span><span class="stat-row-val">KSh 7,822.6Bn</span><span class="stat-row-change pos">+9.6%</span></div>
+      </div>
+      <div class="data-card fade-in">
+        <div class="data-card-title">Financial Sector Assets</div>
+        <div class="stat-row"><span class="stat-row-label">Commercial Bank Assets</span><span class="stat-row-val">KSh 5,760.3Bn</span><span class="stat-row-change pos">+10.8%</span></div>
+        <div class="stat-row"><span class="stat-row-label">SACCO Assets</span><span class="stat-row-val">KSh 727.1Bn</span><span class="stat-row-change pos">+11.5%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Pension Fund Assets</span><span class="stat-row-val">KSh 2,810.6Bn</span><span class="stat-row-change pos">+24.6%</span></div>
+        <div class="stat-row"><span class="stat-row-label">NSE Market Capitalisation</span><span class="stat-row-val">KSh 2,944.5Bn</span><span class="stat-row-change pos">+51.7%</span></div>
+        <div class="stat-row"><span class="stat-row-label">NSE 20 Share Index</span><span class="stat-row-val">3,139.2pts</span><span class="stat-row-change pos">↑ from 2,010.7</span></div>
+      </div>
+      <div class="data-card fade-in">
+        <div class="data-card-title">National Government Fiscal Position</div>
+        <div class="stat-row"><span class="stat-row-label">Projected Revenue (2025/26)</span><span class="stat-row-val">KSh 3,383.1Bn</span><span class="stat-row-change pos">Ordinary + Grants</span></div>
+        <div class="stat-row"><span class="stat-row-label">Total Expenditure (2025/26)</span><span class="stat-row-val">KSh 4,269.6Bn</span><span class="stat-row-change neg">Up</span></div>
+        <div class="stat-row"><span class="stat-row-label">Budget Deficit (2025/26)</span><span class="stat-row-val">KSh 886.6Bn</span><span class="stat-row-change neg">-5.0% of GDP</span></div>
+        <div class="stat-row"><span class="stat-row-label">Interest Payments (2025/26)</span><span class="stat-row-val">KSh 1,097.7Bn</span><span class="stat-row-change neg">Projected</span></div>
+      </div>
+      <div class="data-card fade-in">
+        <div class="data-card-title">Public Debt Composition (Jun 2025)</div>
+        <div class="stat-row"><span class="stat-row-label">Total Public Debt</span><span class="stat-row-val">KSh 11,393.6Bn</span><span class="stat-row-change neg">+14.5%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Multilateral Debt</span><span class="stat-row-val">KSh 3,045.4Bn</span><span class="stat-row-change neg">+9.3%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Bilateral Debt</span><span class="stat-row-val">KSh 1,032.5Bn</span><span class="stat-row-change pos">-5.5%</span></div>
+        <div class="stat-row"><span class="stat-row-label">County Revenue (2025/26)</span><span class="stat-row-val">KSh 543.9Bn</span><span class="stat-row-change pos">+9.4%</span></div>
+      </div>
+    </div>
+    <div class="note-box fade-in">
+      <p><strong>Market Rally:</strong> The NSE 20 Share Index surged from 2,011 in 2024 to <strong>3,139 points</strong> in 2025 — a remarkable 56% gain. Market capitalisation grew by KSh 1.0 trillion, reflecting improved investor confidence following interest rate cuts.</p>
+    </div>
+  </div>
+</div>
+
+<div class="chapter-panel" id="ch-trade">
+  <div class="section">
+    <div class="section-header fade-in">
+      <div><div class="section-tag">Chapter 6</div><h2 class="section-title">International Trade &amp; Balance of Payments</h2></div>
+    </div>
+    <div class="data-grid">
+      <div class="data-card fade-in">
+        <div class="data-card-title">Merchandise Trade Summary (2025)</div>
+        <div class="stat-row"><span class="stat-row-label">Total Trade Volume</span><span class="stat-row-val">KSh 3.9T</span><span class="stat-row-change pos">+1.9%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Total Imports</span><span class="stat-row-val">KSh 2.8T</span><span class="stat-row-change neg">+2.5%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Total Exports</span><span class="stat-row-val">KSh 1.1T</span><span class="stat-row-change pos">+0.6%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Trade Deficit</span><span class="stat-row-val">KSh 1.7T</span><span class="stat-row-change neg">Widened</span></div>
+        <div class="stat-row"><span class="stat-row-label">Current Account Deficit</span><span class="stat-row-val">KSh 373.3Bn</span><span class="stat-row-change neg">↑ from KSh 285.5Bn</span></div>
+      </div>
+      <div class="data-card fade-in">
+        <div class="data-card-title">Export Destinations (2025)</div>
+        <div class="donut-wrap">
+          <svg width="110" height="110" viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="45" fill="none" stroke="#006B3C" stroke-width="22"
+              stroke-dasharray="135 148" stroke-dashoffset="0" transform="rotate(-90 60 60)"/>
+            <circle cx="60" cy="60" r="45" fill="none" stroke="#00A85A" stroke-width="22"
+              stroke-dasharray="79 204" stroke-dashoffset="-135" transform="rotate(-90 60 60)"/>
+            <circle cx="60" cy="60" r="45" fill="none" stroke="#C8951A" stroke-width="22"
+              stroke-dasharray="60 223" stroke-dashoffset="-214" transform="rotate(-90 60 60)"/>
+            <circle cx="60" cy="60" r="45" fill="none" stroke="#E8F5EE" stroke-width="22"
+              stroke-dasharray="9 274" stroke-dashoffset="-274" transform="rotate(-90 60 60)"/>
+          </svg>
+          <div class="donut-legend">
+            <div class="donut-item"><div class="donut-dot" style="background:#006B3C"></div><span class="donut-name">Africa</span><span class="donut-pct">~38%</span></div>
+            <div class="donut-item"><div class="donut-dot" style="background:#00A85A"></div><span class="donut-name">Europe</span><span class="donut-pct">~22%</span></div>
+            <div class="donut-item"><div class="donut-dot" style="background:#C8951A"></div><span class="donut-name">Asia</span><span class="donut-pct">~19%</span></div>
+            <div class="donut-item"><div class="donut-dot" style="background:#E8F5EE"></div><span class="donut-name">Americas</span><span class="donut-pct">~6%</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="data-card fade-in">
+        <div class="data-card-title">Key Export Earnings</div>
+        <div class="stat-row"><span class="stat-row-label">Exports to Africa</span><span class="stat-row-val">KSh 452.8Bn</span><span class="stat-row-change pos">Leading destination</span></div>
+        <div class="stat-row"><span class="stat-row-label">Exports to Uganda (EAC)</span><span class="stat-row-val">14.5% share</span><span class="stat-row-change pos">+28.8%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Exports to Europe</span><span class="stat-row-val">KSh 263.7Bn</span><span class="stat-row-change pos">↑ Improved</span></div>
+        <div class="stat-row"><span class="stat-row-label">Exports to Asia</span><span class="stat-row-val">KSh 275.7Bn</span><span class="stat-row-change neg">-13.2%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Exports to Americas</span><span class="stat-row-val">KSh 90.1Bn</span><span class="stat-row-change neg">↓ Declined</span></div>
+      </div>
+      <div class="data-card fade-in">
+        <div class="data-card-title">Import Sources &amp; External Position</div>
+        <div class="stat-row"><span class="stat-row-label">Asia Share of Imports</span><span class="stat-row-val">70.0%</span><span class="stat-row-change neg">↑ from 66.4%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Imports from Europe</span><span class="stat-row-val">KSh 347.1Bn</span><span class="stat-row-change pos">-12.5% share</span></div>
+        <div class="stat-row"><span class="stat-row-label">External Financial Assets</span><span class="stat-row-val">KSh 4.6T</span><span class="stat-row-change pos">+10.6%</span></div>
+        <div class="stat-row"><span class="stat-row-label">External Financial Liabilities</span><span class="stat-row-val">KSh 12.9T</span><span class="stat-row-change neg">+5.0%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Remittance Inflows</span><span class="stat-row-val">KSh 965.1Bn</span><span class="stat-row-change neg">-6.5%</span></div>
+      </div>
+    </div>
+    <div class="warn-box fade-in">
+      <p><strong>Import Dependency on Asia:</strong> Asia's share of Kenya's import bill climbed to <strong>70.0%</strong> in 2025, up from 66.4% in 2024. This growing concentration raises supply chain vulnerability risks and currency exposure to Asian markets.</p>
+    </div>
+  </div>
+</div>
+
+<div class="chapter-panel" id="ch-agriculture">
+  <div class="section">
+    <div class="section-header fade-in">
+      <div><div class="section-tag">Chapter 7</div><h2 class="section-title">Agriculture Sector</h2></div>
+    </div>
+    <div class="data-grid">
+      <div class="data-card fade-in">
+        <div class="data-card-title">Crop Production (2025)</div>
+        <div class="stat-row"><span class="stat-row-label">Maize Production</span><span class="stat-row-val">45.8M bags</span><span class="stat-row-change pos">+2.4%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Green Leaf Tea Output</span><span class="stat-row-val">2,476.7K tonnes</span><span class="stat-row-change neg">-7.8%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Coffee (2024/25 season)</span><span class="stat-row-val">51.4K tonnes</span><span class="stat-row-change pos">+3.8%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Sugar Cane Production</span><span class="stat-row-val">7,051.9K tonnes</span><span class="stat-row-change neg">-24.7%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Rice Paddy Production</span><span class="stat-row-val">303.7K tonnes</span><span class="stat-row-change pos">+6.4%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Wheat Production</span><span class="stat-row-val">254.9K tonnes</span><span class="stat-row-change neg">-18.2%</span></div>
+      </div>
+      <div class="data-card fade-in">
+        <div class="data-card-title">Horticulture &amp; Livestock</div>
+        <div class="stat-row"><span class="stat-row-label">Horticultural Export Volume</span><span class="stat-row-val">457.9K tonnes</span><span class="stat-row-change pos">+13.8%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Horticultural Export Earnings</span><span class="stat-row-val">KSh 143.8Bn</span><span class="stat-row-change pos">+5.3%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Cut Flower Exports</span><span class="stat-row-val">130.6K tonnes</span><span class="stat-row-change pos">+27.4%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Cut Flower Earnings</span><span class="stat-row-val">KSh 81.3Bn</span><span class="stat-row-change pos">+12.8%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Milk Production</span><span class="stat-row-val">5.5 billion litres</span><span class="stat-row-change pos">+3.5%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Marketed Milk</span><span class="stat-row-val">1.0 billion litres</span><span class="stat-row-change pos">+11.5%</span></div>
+      </div>
+      <div class="data-card fade-in">
+        <div class="data-card-title">Agriculture at a Glance</div>
+        <div class="highlight-box" style="margin-bottom:0;">
+          <p>Agriculture grew by <strong>2.8% in real terms</strong> in 2025 — a slowdown from 4.3% in 2024. The sector contributes <strong>23.2% of GDP</strong> and remains Kenya's economic backbone.</p>
+        </div>
+        <div style="margin-top:16px;">
+          <div class="progress-item">
+            <div class="progress-header"><span class="progress-name">Agric. real growth 2025</span><span class="progress-val">2.8%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:28%;background:#C8951A;"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header"><span class="progress-name">Agric. real growth 2024</span><span class="progress-val">4.3%</span></div>
+            <div class="progress-track"><div class="progress-fill" style="width:43%;"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="data-card fade-in">
+        <div class="data-card-title">Concerns &amp; Highlights</div>
+        <div class="warn-box" style="margin-bottom:12px;">
+          <p><strong>Sugar cane</strong> production fell sharply by <strong>24.7%</strong>, raising concerns for the sugar processing industry. Pyrethrum production also dropped 18.2%.</p>
+        </div>
+        <div class="highlight-box" style="margin-bottom:0;">
+          <p><strong>Fresh vegetables</strong> export earnings declined 9.0% to KSh 21.3Bn due to Maximum Residual Level (MRL) notifications and export interceptions in key markets.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="chapter-panel" id="ch-energy">
+  <div class="section">
+    <div class="section-header fade-in">
+      <div><div class="section-tag">Chapter 9</div><h2 class="section-title">Energy Sector</h2></div>
+    </div>
+    <div class="data-grid">
+      <div class="data-card fade-in">
+        <div class="data-card-title">Petroleum (2025)</div>
+        <div class="stat-row"><span class="stat-row-label">Petroleum Imports</span><span class="stat-row-val">5.5M tonnes</span><span class="stat-row-change neg">+12.2%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Domestic Petroleum Demand</span><span class="stat-row-val">5.7M tonnes</span><span class="stat-row-change neg">+9.9%</span></div>
+        <div class="stat-row"><span class="stat-row-label">LPG Consumption</span><span class="stat-row-val">475.9K tonnes</span><span class="stat-row-change pos">+14.7%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Petroleum Exports/Re-exports</span><span class="stat-row-val">983.5K tonnes</span><span class="stat-row-change neg">Slight decline</span></div>
+      </div>
+      <div class="data-card fade-in">
+        <div class="data-card-title">Electricity Mix (2025)</div>
+        <div class="progress-item">
+          <div class="progress-header"><span class="progress-name">Renewables (Geothermal, Hydro, Wind, Solar)</span><span class="progress-val">~90%</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:90%;"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-header"><span class="progress-name">Thermal (Fossil)</span><span class="progress-val">~10%</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:10%;background:#BB0000;"></div></div>
+        </div>
+        <p style="font-size:12px;color:var(--ink-light);margin-top:12px;line-height:1.6;">Kenya remains one of Africa's leaders in renewable electricity generation. Rural electrification and KETRACO transmission expansion continued in 2025.</p>
+      </div>
+      <div class="data-card fade-in">
+        <div class="data-card-title">LPG Growth — Policy Impact</div>
+        <div class="highlight-box">
+          <p>LPG consumption surged <strong>14.7%</strong> driven by the National LPG Growth Strategy — subsidized cylinders for low-income households and installation programmes, reducing reliance on charcoal and wood fuel.</p>
+        </div>
+      </div>
+      <div class="data-card fade-in">
+        <div class="data-card-title">Crude Oil Prices (Global 2025)</div>
+        <div class="stat-row"><span class="stat-row-label">Avg. Murban/OPEC Basket (2025)</span><span class="stat-row-val">~$68.92/bbl</span><span class="stat-row-change pos">↓ from $79.17</span></div>
+        <div class="stat-row"><span class="stat-row-label">Impact on Inflation</span><span class="stat-row-val">Eased</span><span class="stat-row-change pos">Lower fuel prices</span></div>
+        <div class="stat-row"><span class="stat-row-label">Transport Inflation</span><span class="stat-row-val">3.2%</span><span class="stat-row-change pos">↓ from 5.0%</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="chapter-panel" id="ch-social">
+  <div class="section">
+    <div class="section-header fade-in">
+      <div><div class="section-tag">Chapters 15 &amp; 16</div><h2 class="section-title">Health &amp; Education</h2></div>
+    </div>
+    <div class="data-grid">
+      <div class="data-card fade-in">
+        <div class="data-card-title">Education Enrolment (2025)</div>
+        <div class="stat-row"><span class="stat-row-label">Pre-primary &amp; Primary</span><span class="stat-row-val">11.9M learners</span><span class="stat-row-change pos">↑</span></div>
+        <div class="stat-row"><span class="stat-row-label">Secondary School</span><span class="stat-row-val">3.3M learners</span><span class="stat-row-change pos">↑</span></div>
+        <div class="stat-row"><span class="stat-row-label">University Enrolment</span><span class="stat-row-val">722,500</span><span class="stat-row-change pos">+15.6%</span></div>
+        <div class="stat-row"><span class="stat-row-label">TVET &amp; Post-Secondary</span><span class="stat-row-val">890,100</span><span class="stat-row-change pos">+19.5%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Adult Education Enrolment</span><span class="stat-row-val">Growing</span><span class="stat-row-change neu">CBC transition</span></div>
+      </div>
+      <div class="data-card fade-in">
+        <div class="data-card-title">Health System Indicators</div>
+        <div class="stat-row"><span class="stat-row-label">Licensed Doctors &amp; Dentists</span><span class="stat-row-val">18,561</span><span class="stat-row-change pos">+4.9%</span></div>
+        <div class="stat-row"><span class="stat-row-label">SHA Members Registered</span><span class="stat-row-val">Growing (2024/25)</span><span class="stat-row-change pos">New system</span></div>
+        <div class="stat-row"><span class="stat-row-label">National Govt Health Expenditure</span><span class="stat-row-val">Increased</span><span class="stat-row-change pos">2025/26 allocation ↑</span></div>
+        <div class="stat-row"><span class="stat-row-label">County Govt Health Expenditure</span><span class="stat-row-val">Increased</span><span class="stat-row-change pos">Share rising</span></div>
+      </div>
+      <div class="data-card fade-in">
+        <div class="data-card-title">Education Highlights</div>
+        <div class="highlight-box">
+          <p>University enrolment reached <strong>722,500</strong> students in 2025 — up from 624,600 in 2024. The TVET sector has grown to <strong>890,100 enrolments</strong>, reflecting government investment in technical and vocational skills.</p>
+        </div>
+        <div class="note-box" style="margin-bottom:0;">
+          <p>Kenya introduced <strong>Grade 9 KJSEA</strong> assessment for the first time in 2025 as part of the Competency-Based Curriculum (CBC) rollout, marking a major milestone in education reform.</p>
+        </div>
+      </div>
+      <div class="data-card fade-in">
+        <div class="data-card-title">SHA — New Health Insurance (2024/25)</div>
+        <div class="highlight-box" style="margin-bottom:12px;">
+          <p>Kenya transitioned from NHIF to the <strong>Social Health Authority (SHA)</strong> in 2024/25, with premiums received and benefits payouts now tracked under the new framework.</p>
+        </div>
+        <div class="warn-box" style="margin-bottom:0;">
+          <p>Adolescent pregnancy remains a concern: <strong>Number of adolescents presenting at 1st ANC visit</strong> data continues to be tracked across all 47 counties, with county-level variation flagged in the report.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="chapter-panel" id="ch-global">
+  <div class="section">
+    <div class="section-header fade-in">
+      <div><div class="section-tag">Chapter 1</div><h2 class="section-title">International Scene</h2></div>
+    </div>
+    <div class="data-grid">
+      <div class="data-card fade-in">
+        <div class="data-card-title">Global Economic Indicators (2025)</div>
+        <div class="stat-row"><span class="stat-row-label">World Real GDP Growth</span><span class="stat-row-val">3.3%</span><span class="stat-row-change neu">= 2024</span></div>
+        <div class="stat-row"><span class="stat-row-label">Advanced Economies</span><span class="stat-row-val">1.7%</span><span class="stat-row-change neg">↓ from 1.8%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Emerging Markets &amp; Dev. Economies</span><span class="stat-row-val">4.4%</span><span class="stat-row-change pos">↑ from 4.3%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Sub-Saharan Africa</span><span class="stat-row-val">4.4%</span><span class="stat-row-change pos">↑ from 4.1%</span></div>
+        <div class="stat-row"><span class="stat-row-label">World Trade Volume Growth</span><span class="stat-row-val">4.1%</span><span class="stat-row-change pos">↑ from 3.6%</span></div>
+        <div class="stat-row"><span class="stat-row-label">World Inflation</span><span class="stat-row-val">4.1%</span><span class="stat-row-change pos">↓ from 5.8%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Global Unemployment</span><span class="stat-row-val">4.9%</span><span class="stat-row-change neu">Unchanged</span></div>
+      </div>
+      <div class="data-card fade-in">
+        <div class="data-card-title">OECD Country Snapshot (2025)</div>
+        <div class="stat-row"><span class="stat-row-label">USA</span><span class="stat-row-val">2.0%</span><span class="stat-row-change neg">↓ from 2.8%</span></div>
+        <div class="stat-row"><span class="stat-row-label">UK</span><span class="stat-row-val">1.4%</span><span class="stat-row-change pos">↑ from 1.1%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Japan</span><span class="stat-row-val">1.3%</span><span class="stat-row-change pos">↑ from -0.2%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Germany</span><span class="stat-row-val">0.3%</span><span class="stat-row-change pos">↑ from -0.5%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Euro Area</span><span class="stat-row-val">1.3%</span><span class="stat-row-change pos">↑ from 0.8%</span></div>
+        <div class="stat-row"><span class="stat-row-label">China</span><span class="stat-row-val">~4.5%</span><span class="stat-row-change neu">Est.</span></div>
+      </div>
+      <div class="data-card fade-in">
+        <div class="data-card-title">East African Community (EAC)</div>
+        <div class="stat-row"><span class="stat-row-label">Kenya</span><span class="stat-row-val">4.6%</span><span class="stat-row-change neu">Regional player</span></div>
+        <div class="stat-row"><span class="stat-row-label">Tanzania</span><span class="stat-row-val">6.0%</span><span class="stat-row-change pos">↑ from 5.5%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Uganda (top export dest.)</span><span class="stat-row-val">14.5% Kenya exports</span><span class="stat-row-change pos">+28.8% growth</span></div>
+      </div>
+      <div class="data-card fade-in">
+        <div class="data-card-title">Global Macro Context</div>
+        <div class="note-box" style="margin-bottom:12px;">
+          <p>Global growth was constrained by <strong>elevated policy uncertainty, US trade tariff measures</strong>, and sluggish productivity. Front-loading by businesses ahead of tariff changes distorted global trade patterns in 2025.</p>
+        </div>
+        <div class="highlight-box" style="margin-bottom:0;">
+          <p>Crude oil fell to <strong>~$68.92/barrel</strong> in 2025 from $79.17/barrel, easing inflationary pressures globally and benefiting Kenya's fuel import bill.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-wordmark">Kenya Economic Survey 2026</div>
+    <div class="footer-sub">Josiah K. Kimani &nbsp;·&nbsp; Independent Civic Analysis</div>
+    <p>
+      Compiled and designed by <strong style="color:rgba(255,255,255,0.8);">Josiah K. Kimani</strong><br>
+      as part of ongoing work on techno-democracy and economic governance in Africa.
+    </p>
+    <div class="footer-divider"></div>
+    <p>
+      Data source: <strong style="color:rgba(255,255,255,0.65);">KNBS Economic Survey 2026</strong><br>
+      Kenya National Bureau of Statistics &nbsp;·&nbsp; Published April 2026<br>
+      ISBN: 978-9966-102-53-9 &nbsp;·&nbsp; <a href="https://www.knbs.or.ke">www.knbs.or.ke</a>
+    </p>
+    <div class="footer-divider"></div>
+    <p style="font-size:11px;color:rgba(255,255,255,0.28);">
+      This independent summary is compiled from the official KNBS publication for civic education purposes.<br>
+      Not affiliated with or endorsed by KNBS &nbsp;·&nbsp; Licensed under CC BY-NC 4.0
+    </p>
+  </div>
+</footer>
+
+<script>
+  function showChapter(btn, id) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.chapter-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(id).classList.add('active');
+    document.querySelectorAll('#' + id + ' .fade-in').forEach(el => {
+      el.classList.remove('visible');
+      setTimeout(() => el.classList.add('visible'), 50);
+    });
+    document.getElementById('chapters').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  const progressObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.progress-fill').forEach(fill => {
+          const w = fill.style.width;
+          fill.style.width = '0';
+          setTimeout(() => fill.style.width = w, 100);
+        });
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.data-card').forEach(el => progressObserver.observe(el));
+</script>
+</body>
+</html>
